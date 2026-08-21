@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Email Mastery - Interactive Lesson</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .tab-btn.active {
+            border-bottom: 3px solid #2563eb;
+            color: #2563eb;
+            font-weight: 600;
+        }
+        .anatomy-part:hover {
+            outline: 2px dashed #3b82f6;
+            cursor: pointer;
+        }
+        .anatomy-part.selected {
+            background-color: #eff6ff !important;
+            border-left: 4px solid #2563eb;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="bg-indigo-900 text-white shadow-md">
+        <div class="max-w-6xl mx-auto px-4 py-6">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div>
+                    <span class="inline-block bg-amber-400 text-slate-900 font-bold text-xs uppercase tracking-wider px-2.5 py-1 rounded-full mb-2">High School & College Prep Edition</span>
+                    <h1 class="text-2xl md:text-3xl font-bold tracking-tight">High School Email Writing Mastery</h1>
+                    <p class="text-indigo-200 text-sm mt-1">Learn how to email teachers, guidance counselors, college admissions, and future employers.</p>
+                </div>
+                <div class="flex items-center space-x-2 bg-indigo-800/80 p-3 rounded-lg border border-indigo-700 text-xs text-indigo-100">
+                    <svg class="w-5 h-5 text-indigo-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <span>Estimated time: 15–20 minutes</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <div class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 flex overflow-x-auto space-x-8 text-sm text-slate-600 font-medium">
+            <button onclick="switchTab('anatomy')" id="tab-anatomy" class="tab-btn py-4 whitespace-nowrap active flex items-center gap-2">
+                <span>1. Anatomy of an Email</span>
+            </button>
+            <button onclick="switchTab('tone')" id="tab-tone" class="tab-btn py-4 whitespace-nowrap flex items-center gap-2">
+                <span>2. Tone & Etiquette Matrix</span>
+            </button>
+            <button onclick="switchTab('subject')" id="tab-subject" class="tab-btn py-4 whitespace-nowrap flex items-center gap-2">
+                <span>3. Subject Line Lab</span>
+            </button>
+            <button onclick="switchTab('sandbox')" id="tab-sandbox" class="tab-btn py-4 whitespace-nowrap flex items-center gap-2">
+                <span>4. Interactive Builder & Analyzer</span>
+            </button>
+            <button onclick="switchTab('quiz')" id="tab-quiz" class="tab-btn py-4 whitespace-nowrap flex items-center gap-2">
+                <span>5. Knowledge Check</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <main class="max-w-6xl mx-auto px-4 py-8 flex-1 w-full">
+
+        <!-- TAB 1: ANATOMY OF AN EMAIL -->
+        <section id="content-anatomy" class="tab-content space-y-6">
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                <h2 class="text-xl font-bold text-slate-900 mb-2">The 5 Core Components of a Professional Email</h2>
+                <p class="text-slate-600 mb-6">Click on any section of the sample email below to learn its specific rules, best practices, and common pitfalls.</p>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                    <!-- Email Specimen -->
+                    <div class="lg:col-span-7 bg-white rounded-lg border border-slate-300 shadow-md overflow-hidden">
+                        <!-- Email Header Mockup -->
+                        <div class="bg-slate-100 px-4 py-3 border-b border-slate-200 text-xs text-slate-600 space-y-1">
+                            <div class="flex"><span class="w-16 font-semibold">To:</span> <span class="text-slate-800">mrs.gomez@lincolnhigh.edu</span></div>
+                            <div class="flex"><span class="w-16 font-semibold">From:</span> <span class="text-slate-800">maya.lin@student.lincolnhigh.edu</span></div>
+                        </div>
+
+                        <!-- Clickable Anatomy Blocks -->
+                        <div class="p-5 space-y-3 font-sans text-sm">
+                            <!-- Block 1: Subject -->
+                            <div id="part-subject" onclick="inspectPart('subject')" class="anatomy-part p-3 rounded border border-slate-200 bg-slate-50 transition">
+                                <span class="text-xs font-semibold text-indigo-600 uppercase tracking-wide block mb-1">Subject Line</span>
+                                <div class="font-medium text-slate-900">AP History Essay Extension Request - Maya Lin (Period 3)</div>
+                            </div>
+
+                            <!-- Block 2: Salutation -->
+                            <div id="part-salutation" onclick="inspectPart('salutation')" class="anatomy-part p-3 rounded border border-slate-200 bg-slate-50 transition">
+                                <span class="text-xs font-semibold text-indigo-600 uppercase tracking-wide block mb-1">Salutation / Greeting</span>
+                                <div class="text-slate-800">Dear Mrs. Gomez,</div>
+                            </div>
+
+                            <!-- Block 3: Context & Body -->
+                            <div id="part-body" onclick="inspectPart('body')" class="anatomy-part p-3 rounded border border-slate-200 bg-slate-50 transition">
+                                <span class="text-xs font-semibold text-indigo-600 uppercase tracking-wide block mb-1">Opening Context & Body</span>
+                                <div class="text-slate-700 leading-relaxed">
+                                    I hope you are having a good week.<br><br>
+                                    I am writing regarding the AP U.S. History research paper due this Friday. Due to missing class yesterday for the track meet, I am requesting a one-day extension to review my primary sources with you during lunch tutoring.
+                                </div>
+                            </div>
+
+                            <!-- Block 4: Call to Action -->
+                            <div id="part-cta" onclick="inspectPart('cta')" class="anatomy-part p-3 rounded border border-slate-200 bg-slate-50 transition">
+                                <span class="text-xs font-semibold text-indigo-600 uppercase tracking-wide block mb-1">Call to Action (CTA) / Next Steps</span>
+                                <div class="text-slate-700 leading-relaxed">
+                                    Could I stop by your classroom tomorrow at 11:45 AM during lunch to review my outline and confirm if Monday submission works?
+                                </div>
+                            </div>
+
+                            <!-- Block 5: Sign-off -->
+                            <div id="part-signoff" onclick="inspectPart('signoff')" class="anatomy-part p-3 rounded border border-slate-200 bg-slate-50 transition">
+                                <span class="text-xs font-semibold text-indigo-600 uppercase tracking-wide block mb-1">Sign-off & Student Signature</span>
+                                <div class="text-slate-800">
+                                    Thank you,<br>
+                                    <strong>Maya Lin</strong><br>
+                                    <span class="text-xs text-slate-500">11th Grade Student | AP History (Period 3)<br>maya.lin@student.lincolnhigh.edu</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Inspector Panel -->
+                    <div class="lg:col-span-5 bg-slate-50 p-5 rounded-lg border border-slate-200 flex flex-col justify-between">
+                        <div id="anatomy-inspector">
+                            <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-indigo-100 text-indigo-800 text-xs font-semibold mb-3">
+                                👈 Click a highlighted section to analyze
+                            </div>
+                            <h3 id="inspector-title" class="text-lg font-bold text-slate-900 mb-2">Email Anatomy Overview</h3>
+                            <p id="inspector-desc" class="text-slate-600 text-sm leading-relaxed mb-4">
+                                Every effective business email consists of 5 essential building blocks. Each serves a specific purpose in ensuring your message is read, understood, and acted upon efficiently.
+                            </p>
+                            <div id="inspector-details" class="space-y-3 hidden">
+                                <div class="p-3 bg-emerald-50 border border-emerald-200 rounded text-xs text-emerald-800">
+                                    <strong>✅ Golden Rule:</strong> <span id="inspector-do">Keep it clear and specific.</span>
+                                </div>
+                                <div class="p-3 bg-amber-50 border border-amber-200 rounded text-xs text-amber-800">
+                                    <strong>⚠️ Common Pitfall:</strong> <span id="inspector-dont">Avoid vague terms.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 pt-4 border-t border-slate-200 text-xs text-slate-500 flex justify-between items-center">
+                            <span>Key Takeaway: Respect recipient's time</span>
+                            <span class="font-semibold text-indigo-600">Step 1 of 5</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 2: TONE & ETIQUETTE MATRIX -->
+        <section id="content-tone" class="tab-content hidden space-y-6">
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                <h2 class="text-xl font-bold text-slate-900 mb-2">Matching Tone to Context</h2>
+                <p class="text-slate-600 mb-6">Professional tone isn't always robotic or overly formal. It adjusts based on your relationship with the recipient and the situation.</p>
+
+                <!-- Interactive Tone Selector -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                    <button onclick="showTone('formal')" id="btn-tone-formal" class="tone-card-btn p-4 rounded-lg border-2 border-indigo-600 bg-indigo-50 text-left transition">
+                        <div class="text-xs font-bold text-indigo-600 uppercase">Level 1</div>
+                        <div class="font-bold text-slate-900 text-base mt-1">Formal</div>
+                        <div class="text-xs text-slate-500 mt-1">Teachers, Principals, College Admissions, Scholarship Officers</div>
+                    </button>
+                    <button onclick="showTone('semiformal')" id="btn-tone-semiformal" class="tone-card-btn p-4 rounded-lg border-2 border-slate-200 hover:border-slate-300 text-left transition">
+                        <div class="text-xs font-bold text-slate-500 uppercase">Level 2</div>
+                        <div class="font-bold text-slate-900 text-base mt-1">Semi-Formal</div>
+                        <div class="text-xs text-slate-500 mt-1">Coaches, Guidance Counselors, Club Advisors, Summer Job Managers</div>
+                    </button>
+                    <button onclick="showTone('informal')" id="btn-tone-informal" class="tone-card-btn p-4 rounded-lg border-2 border-slate-200 hover:border-slate-300 text-left transition">
+                        <div class="text-xs font-bold text-slate-500 uppercase">Level 3</div>
+                        <div class="font-bold text-slate-900 text-base mt-1">Informal / Peer</div>
+                        <div class="text-xs text-slate-500 mt-1">Group Project Classmates, Friends, Student Council Peers</div>
+                    </button>
+                </div>
+
+                <!-- Phrase Comparison Tool -->
+                <div class="bg-slate-50 p-5 rounded-lg border border-slate-200">
+                    <h3 id="tone-heading" class="font-bold text-slate-900 mb-3">Formal Tone Examples & Phrase Swaps</h3>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-xs md:text-sm border-collapse">
+                            <thead>
+                                <tr class="bg-slate-200 text-slate-700">
+                                    <th class="p-3 rounded-tl">Intent / Purpose</th>
+                                    <th class="p-3 text-red-700 bg-red-100">❌ Too Informal / Blunt</th>
+                                    <th class="p-3 text-emerald-800 bg-emerald-100 rounded-tr">✅ Recommended Professional Phrase</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tone-table-body" class="divide-y divide-slate-200 bg-white text-slate-700">
+                                <!-- Populated dynamically by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 3: SUBJECT LINE LAB -->
+        <section id="content-subject" class="tab-content hidden space-y-6">
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                <h2 class="text-xl font-bold text-slate-900 mb-2">Subject Line Transformer</h2>
+                <p class="text-slate-600 mb-6">The subject line determines if your email gets opened. Test your ability to convert weak subject lines into effective ones.</p>
+
+                <div id="subject-challenges" class="space-y-6">
+                    <!-- Challenge 1 -->
+                    <div class="p-5 border border-slate-200 rounded-lg bg-slate-50 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-500 uppercase">Scenario 1: Missing Class & Make-up Work</span>
+                            <span class="text-xs bg-red-100 text-red-700 px-2 py-0.5 rounded font-semibold">Weak Original: "hey miss what did I miss"</span>
+                        </div>
+                        <p class="text-sm text-slate-700">You missed Chemistry class on Tuesday due to a doctor's appointment and need to know how to make up the lab.</p>
+                        
+                        <div class="space-y-2 text-sm">
+                            <label class="block text-xs font-semibold text-slate-600">Select the most effective subject line:</label>
+                            <button onclick="checkSubject(1, 'a')" class="w-full text-left p-3 rounded border border-slate-200 bg-white hover:bg-slate-100 flex justify-between items-center transition">
+                                <span>A) Chemistry assignment makeup</span>
+                                <span id="sub-1-a" class="sub-feedback text-xs font-semibold"></span>
+                            </button>
+                            <button onclick="checkSubject(1, 'b')" class="w-full text-left p-3 rounded border border-slate-200 bg-white hover:bg-slate-100 flex justify-between items-center transition">
+                                <span>B) Tuesday Absence & Lab Makeup - Tyler Brooks (Period 4 Chemistry)</span>
+                                <span id="sub-1-b" class="sub-feedback text-xs font-semibold"></span>
+                            </button>
+                            <button onclick="checkSubject(1, 'c')" class="w-full text-left p-3 rounded border border-slate-200 bg-white hover:bg-slate-100 flex justify-between items-center transition">
+                                <span>C) URGENT!!! MY GRADE IS DROPPING NEED LAB HELP NOW</span>
+                                <span id="sub-1-c" class="sub-feedback text-xs font-semibold"></span>
+                            </button>
+                        </div>
+                        <div id="subject-exp-1" class="hidden text-xs p-3 rounded bg-indigo-50 text-indigo-900 border border-indigo-200"></div>
+                    </div>
+
+                    <!-- Challenge 2 -->
+                    <div class="p-5 border border-slate-200 rounded-lg bg-slate-50 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-slate-500 uppercase">Scenario 2: Recommendation Letter Request</span>
+                            <span class="text-xs bg-red-100 text-red-700 px-2 py-0.5 rounded font-semibold">Weak Original: "rec letter"</span>
+                        </div>
+                        <p class="text-sm text-slate-700">You are asking your junior year English teacher to write a college recommendation letter due in 4 weeks.</p>
+                        
+                        <div class="space-y-2 text-sm">
+                            <label class="block text-xs font-semibold text-slate-600">Select the most effective subject line:</label>
+                            <button onclick="checkSubject(2, 'a')" class="w-full text-left p-3 rounded border border-slate-200 bg-white hover:bg-slate-100 flex justify-between items-center transition">
+                                <span>A) College Recommendation Letter Request - Sam Rivera (Honors English 11)</span>
+                                <span id="sub-2-a" class="sub-feedback text-xs font-semibold"></span>
+                            </button>
+                            <button onclick="checkSubject(2, 'b')" class="w-full text-left p-3 rounded border border-slate-200 bg-white hover:bg-slate-100 flex justify-between items-center transition">
+                                <span>B) Can you write my college letter real quick?</span>
+                                <span id="sub-2-b" class="sub-feedback text-xs font-semibold"></span>
+                            </button>
+                            <button onclick="checkSubject(2, 'c')" class="w-full text-left p-3 rounded border border-slate-200 bg-white hover:bg-slate-100 flex justify-between items-center transition">
+                                <span>C) Question about my college application status</span>
+                                <span id="sub-2-c" class="sub-feedback text-xs font-semibold"></span>
+                            </button>
+                        </div>
+                        <div id="subject-exp-2" class="hidden text-xs p-3 rounded bg-indigo-50 text-indigo-900 border border-indigo-200"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 4: INTERACTIVE BUILDER & ANALYZER -->
+        <section id="content-sandbox" class="tab-content hidden space-y-6">
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+                    <div>
+                        <h2 class="text-xl font-bold text-slate-900">Interactive Email Builder & Instant Grader</h2>
+                        <p class="text-slate-600 text-sm">Choose a scenario or craft your own email to receive live analysis, scoring, and actionable polish recommendations.</p>
+                    </div>
+                    <!-- Scenario Quick Fill -->
+                    <div class="shrink-0">
+                        <label class="block text-xs font-semibold text-slate-500 mb-1">Load Sample Scenario:</label>
+                        <select id="scenario-selector" onchange="loadScenario(this.value)" class="bg-slate-100 border border-slate-300 text-slate-800 text-xs rounded-lg p-2 focus:ring-2 focus:ring-indigo-500">
+                            <option value="custom">-- Start from Scratch --</option>
+                            <option value="extension">Requesting Deadline Extension</option>
+                            <option value="followup">Post-Interview Thank You</option>
+                            <option value="meeting">Requesting 1-on-1 Strategy Meeting</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                    <!-- Form Controls -->
+                    <div class="lg:col-span-7 space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 mb-1">Recipient Relationship</label>
+                            <select id="input-recipient" class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2.5 text-sm focus:bg-white focus:ring-2 focus:ring-indigo-500">
+                                <option value="teacher">Teacher / Instructor</option>
+                                <option value="counselor">Guidance Counselor</option>
+                                <option value="college">College Admissions Officer / Recruiter</option>
+                                <option value="boss">Employer / Summer Job Boss</option>
+                                <option value="peer">Classmate / Club Member</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 mb-1">Subject Line</label>
+                            <input type="text" id="input-subject" placeholder="e.g. Project Status Update: Client Onboarding" class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2.5 text-sm focus:bg-white focus:ring-2 focus:ring-indigo-500">
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1">Salutation</label>
+                                <input type="text" id="input-greeting" placeholder="e.g. Dear Mr. Davis," class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2.5 text-sm focus:bg-white focus:ring-2 focus:ring-indigo-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1">Sign-off</label>
+                                <input type="text" id="input-signoff" placeholder="e.g. Best regards," class="w-full bg-slate-50 border border-slate-300 rounded-lg p-2.5 text-sm focus:bg-white focus:ring-2 focus:ring-indigo-500">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 mb-1">Email Body (Context + Details + Call to Action)</label>
+                            <textarea id="input-body" rows="7" placeholder="Type your email message here..." class="w-full bg-slate-50 border border-slate-300 rounded-lg p-3 text-sm focus:bg-white focus:ring-2 focus:ring-indigo-500 leading-relaxed"></textarea>
+                        </div>
+
+                        <button onclick="analyzeEmail()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-4 rounded-lg shadow transition flex items-center justify-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span>Analyze Draft & Score Effectiveness</span>
+                        </button>
+                    </div>
+
+                    <!-- Live Feedback & Scoring Panel -->
+                    <div class="lg:col-span-5 space-y-4">
+                        <div id="analysis-placeholder" class="h-full bg-slate-50 rounded-xl border border-slate-200 p-6 flex flex-col items-center justify-center text-center">
+                            <svg class="w-12 h-12 text-slate-400 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                            <h3 class="text-sm font-semibold text-slate-700">No Draft Analyzed Yet</h3>
+                            <p class="text-xs text-slate-500 mt-1 max-w-xs">Fill out the fields on the left or select a sample scenario, then click "Analyze Draft".</p>
+                        </div>
+
+                        <div id="analysis-results" class="hidden space-y-4">
+                            <!-- Overall Score Card -->
+                            <div class="p-4 bg-white rounded-xl border border-slate-200 shadow-sm flex items-center justify-between">
+                                <div>
+                                    <span class="text-xs font-semibold uppercase tracking-wider text-slate-500">Email Quality Score</span>
+                                    <div id="score-grade" class="text-2xl font-extrabold text-indigo-600 mt-0.5">85 / 100</div>
+                                </div>
+                                <div id="score-badge" class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800">
+                                    Strong & Professional
+                                </div>
+                            </div>
+
+                            <!-- Diagnostic Checklist -->
+                            <div class="p-4 bg-white rounded-xl border border-slate-200 shadow-sm space-y-3">
+                                <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500">Diagnostic Checklist</h4>
+                                <ul id="checklist-items" class="space-y-2 text-xs">
+                                    <!-- Populated by JS -->
+                                </ul>
+                            </div>
+
+                            <!-- Polish Suggestions -->
+                            <div class="p-4 bg-indigo-50 border border-indigo-200 rounded-xl space-y-2">
+                                <h4 class="text-xs font-bold uppercase tracking-wider text-indigo-900">Coach's Suggestions</h4>
+                                <ul id="suggestions-list" class="text-xs text-indigo-800 space-y-1.5 list-disc pl-4">
+                                    <!-- Populated by JS -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 5: KNOWLEDGE CHECK -->
+        <section id="content-quiz" class="tab-content hidden space-y-6">
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                <div class="flex items-center justify-between mb-6">
+                    <div>
+                        <h2 class="text-xl font-bold text-slate-900">Professional Email Knowledge Check</h2>
+                        <p class="text-slate-600 text-sm">Test your understanding of tone, formatting, and email etiquette.</p>
+                    </div>
+                    <span id="quiz-score-badge" class="text-xs font-bold bg-slate-100 text-slate-700 px-3 py-1.5 rounded-full border border-slate-200">
+                        Score: 0 / 3
+                    </span>
+                </div>
+
+                <div id="quiz-questions" class="space-y-6">
+                    <!-- Q1 -->
+                    <div class="p-5 border border-slate-200 rounded-lg bg-slate-50 space-y-3">
+                        <span class="text-xs font-bold text-indigo-600 uppercase">Question 1</span>
+                        <p class="text-sm font-semibold text-slate-800">When emailing a teacher about a grade or assignment, what critical detail should ALWAYS be included?</p>
+                        <div class="space-y-2 text-sm">
+                            <button onclick="answerQuiz(1, false, this)" class="w-full text-left p-3 rounded border border-slate-200 bg-white hover:bg-slate-100 transition">
+                                A) Your home address and phone number.
+                            </button>
+                            <button onclick="answerQuiz(1, true, this)" class="w-full text-left p-3 rounded border border-slate-200 bg-white hover:bg-slate-100 transition">
+                                B) Your full name, course title, and class period (e.g., "Period 3").
+                            </button>
+                            <button onclick="answerQuiz(1, false, this)" class="w-full text-left p-3 rounded border border-slate-200 bg-white hover:bg-slate-100 transition">
+                                C) The phrase "URGENT PLEASE READ" in all capital letters.
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Q2 -->
+                    <div class="p-5 border border-slate-200 rounded-lg bg-slate-50 space-y-3">
+                        <span class="text-xs font-bold text-indigo-600 uppercase">Question 2</span>
+                        <p class="text-sm font-semibold text-slate-800">How far in advance should you ask a teacher or counselor for a college recommendation letter?</p>
+                        <div class="space-y-2 text-sm">
+                            <button onclick="answerQuiz(2, false, this)" class="w-full text-left p-3 rounded border border-slate-200 bg-white hover:bg-slate-100 transition">
+                                A) 1 to 2 days before the deadline so it stays fresh in their mind.
+                            </button>
+                            <button onclick="answerQuiz(2, true, this)" class="w-full text-left p-3 rounded border border-slate-200 bg-white hover:bg-slate-100 transition">
+                                B) At least 3 to 4 weeks before the deadline, along with your brag sheet or resume.
+                            </button>
+                            <button onclick="answerQuiz(2, false, this)" class="w-full text-left p-3 rounded border border-slate-200 bg-white hover:bg-slate-100 transition">
+                                C) Simply send an automated application link without emailing them first.
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Q3 -->
+                    <div class="p-5 border border-slate-200 rounded-lg bg-slate-50 space-y-3">
+                        <span class="text-xs font-bold text-indigo-600 uppercase">Question 3</span>
+                        <p class="text-sm font-semibold text-slate-800">If you noticed a grade error in your online gradebook, what is the most effective approach?</p>
+                        <div class="space-y-2 text-sm">
+                            <button onclick="answerQuiz(3, false, this)" class="w-full text-left p-3 rounded border border-slate-200 bg-white hover:bg-slate-100 transition">
+                                A) Write: "You graded my test wrong and messed up my GPA. Fix it ASAP."
+                            </button>
+                            <button onclick="answerQuiz(3, false, this)" class="w-full text-left p-3 rounded border border-slate-200 bg-white hover:bg-slate-100 transition">
+                                B) Have your parents email the teacher instead so you don't have to.
+                            </button>
+                            <button onclick="answerQuiz(3, true, this)" class="w-full text-left p-3 rounded border border-slate-200 bg-white hover:bg-slate-100 transition">
+                                C) Politely ask for clarification: "I noticed my grade on Quiz 2 was entered as 70 instead of 90. Could you please check when you have a moment?"
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 text-xs py-6 mt-auto">
+        <div class="max-w-6xl mx-auto px-4 text-center space-y-1">
+            <p>Professional Email Writing Interactive Module</p>
+            <p class="text-slate-500">Designed for effective workplace communication and professional career development.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Data Store for Email Parts
+        const anatomyData = {
+            subject: {
+                title: "1. Subject Line",
+                desc: "Teachers receive dozens of emails daily. Include your course name, class period, and specific topic so they know immediately who you are.",
+                do: "Include full name + class period (e.g., 'Question: Ch. 4 Homework - Jordan Lee (Period 2)').",
+                dont: "Don't leave it blank, or use single words like 'hey', 'grade', or 'help'."
+            },
+            salutation: {
+                title: "2. Salutation / Greeting",
+                desc: "Shows respect and establishes a constructive student-teacher rapport.",
+                do: "Use formal titles: 'Dear Mr./Ms./Mrs. [Last Name],' or 'Good morning Dr. [Last Name],'.",
+                dont: "Avoid 'Hey teacher', 'Yo', 'Hi mister', or jumping straight into text without a greeting."
+            },
+            body: {
+                title: "3. Opening Context & Body Paragraphs",
+                desc: "Get to the point quickly while maintaining a respectful tone. State the class period and reason for writing.",
+                do: "Be polite, clear, and concise. State what assignment or date you are referring to.",
+                dont: "Don't use text abbreviations (u, r, cause, imo, pls) or write in ALL-CAPS."
+            },
+            cta: {
+                title: "4. Call to Action (CTA) & Next Steps",
+                desc: "Propose a realistic next step or clear question for your teacher or counselor.",
+                do: "Propose a specific time to meet (e.g., 'May I stop by during tutoring hours on Thursday at 3:15 PM?').",
+                dont: "Don't demand immediate responses or expect teachers to respond late at night or over weekends."
+            },
+            signoff: {
+                title: "5. Student Sign-off & Signature",
+                desc: "Ends the email courteously and provides your identifying details.",
+                do: "Use 'Thank you,', 'Best regards,', or 'Sincerely,', followed by your full name, grade level, and class period.",
+                dont: "Don't end abruptly or sign off with nicknames or emoji handles."
+            }
+        };
+
+        // Tone Table Data
+        const toneData = {
+            formal: [
+                { intent: "Asking about a missing grade", wrong: "Why is my quiz an F? I turned that in last week fix it.", good: "Dear Mrs. Davis, I noticed Quiz 3 is listed as missing in the portal. I submitted it on Friday—could you please check when you have a moment?" },
+                { intent: "Requesting a recommendation letter", wrong: "I need a rec letter by tomorrow for this scholarship.", good: "Dear Mr. Miller, I am applying for the STEM Scholarship (due Oct 15). Would you be comfortable writing a letter of recommendation for me?" },
+                { intent: "College Admissions inquiry", wrong: "Did you get my application yet?", good: "Dear Admissions Team, I am writing to check if my high school transcript has been received for application #48291." }
+            ],
+            semiformal: [
+                { intent: "Notifying coach about late arrival", wrong: "Wont be at practice today.", good: "Hi Coach Roberts, I have a mandatory math tutoring session after school today, so I will be about 15 minutes late to practice." },
+                { intent: "Guidance Counselor schedule change", wrong: "I hate my schedule change it now.", good: "Hi Ms. Vance, I noticed I have two history classes scheduled for Semester 2. Could we meet this week to adjust my schedule?" },
+                { intent: "Part-time Job availability update", wrong: "Cant work Friday bye.", good: "Hi Manager Alex, I have my high school midterms next week, so I wanted to ask if I could swap my Friday shift." }
+            ],
+            informal: [
+                { intent: "Group project coordination", wrong: "Yo do your slides", good: "Hey team! Reminder to finish slides 4-6 before our history presentation tomorrow morning." },
+                { intent: "Borrowing class notes", wrong: "Send me notes", good: "Hey Maya, I missed 3rd period English today—could you send a picture of today's lecture notes when you get a sec?" }
+            ]
+        };
+
+        // Tab Switching
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.add('hidden'));
+
+            document.getElementById(`tab-${tabId}`).classList.add('active');
+            document.getElementById(`content-${tabId}`).classList.remove('hidden');
+        }
+
+        // Anatomy Inspection
+        function inspectPart(partId) {
+            document.querySelectorAll('.anatomy-part').forEach(p => p.classList.remove('selected'));
+            document.getElementById(`part-${partId}`).classList.add('selected');
+
+            const data = anatomyData[partId];
+            document.getElementById('inspector-title').innerText = data.title;
+            document.getElementById('inspector-desc').innerText = data.desc;
+            document.getElementById('inspector-do').innerText = data.do;
+            document.getElementById('inspector-dont').innerText = data.dont;
+            document.getElementById('inspector-details').classList.remove('hidden');
+        }
+
+        // Tone Switching
+        function showTone(toneKey) {
+            document.querySelectorAll('.tone-card-btn').forEach(btn => {
+                btn.classList.remove('border-indigo-600', 'bg-indigo-50');
+                btn.classList.add('border-slate-200');
+            });
+            document.getElementById(`btn-tone-${toneKey}`).classList.add('border-indigo-600', 'bg-indigo-50');
+
+            const rows = toneData[toneKey];
+            const tbody = document.getElementById('tone-table-body');
+            tbody.innerHTML = rows.map(r => `
+                <tr>
+                    <td class="p-3 font-medium text-slate-900">${r.intent}</td>
+                    <td class="p-3 bg-red-50 text-red-800">${r.wrong}</td>
+                    <td class="p-3 bg-emerald-50 text-emerald-900 font-medium">${r.good}</td>
+                </tr>
+            `).join('');
+
+            const titleMap = { formal: "Formal Tone", semiformal: "Semi-Formal Tone", informal: "Informal Tone" };
+            document.getElementById('tone-heading').innerText = `${titleMap[toneKey]} Examples & Phrase Swaps`;
+        }
+
+        // Subject Lab Checks
+        function checkSubject(challengeNum, option) {
+            const expBox = document.getElementById(`subject-exp-${challengeNum}`);
+            expBox.classList.remove('hidden');
+
+            if (challengeNum === 1) {
+                if (option === 'b') {
+                    document.getElementById('sub-1-b').innerText = "✅ Excellent! Actionable & detailed.";
+                    document.getElementById('sub-1-b').className = "sub-feedback text-xs font-semibold text-emerald-600";
+                    expBox.innerText = "Correct! Option B clearly states the topic (Lab Makeup), the reason (Tuesday Absence), your full name, and your class period (Period 4 Chemistry).";
+                } else {
+                    expBox.innerText = "Not ideal. Option A lacks your name and period, while Option C sounds overly demanding.";
+                }
+            } else if (challengeNum === 2) {
+                if (option === 'a') {
+                    document.getElementById('sub-2-a').innerText = "✅ Excellent! Clear & polite.";
+                    document.getElementById('sub-2-a').className = "sub-feedback text-xs font-semibold text-emerald-600";
+                    expBox.innerText = "Correct! Option A allows the teacher to quickly identify who you are, what class you were in, and the purpose of the request.";
+                } else {
+                    expBox.innerText = "Not ideal. Option B is overly casual for a recommendation letter, and Option C is vague.";
+                }
+            }
+        }
+
+        // High School Sample Scenarios
+        const sampleScenarios = {
+            extension: {
+                recipient: "teacher",
+                subject: "Extension Request: Biology Lab Report - Jordan Lee (Period 3)",
+                greeting: "Dear Mr. Hawkins,",
+                body: "I hope you are having a good week.\n\nI am writing regarding the Biology Lab Report scheduled for Friday. Due to missing class on Tuesday for the district track meet, I would like to request an extension until Monday morning at 8:00 AM.\n\nThis extra time will allow me to double-check my data analysis. Please let me know if this adjusted schedule works for you.",
+                signoff: "Thank you for your time,\nJordan Lee\n11th Grade | Period 3 Biology"
+            },
+            recommendation: {
+                recipient: "teacher",
+                subject: "Letter of Recommendation Request - Maya Lin (AP English 11)",
+                greeting: "Dear Ms. Chen,",
+                body: "I hope your semester is off to a great start.\n\nI am currently applying for the Summer STEM Internship (deadline Nov 15th). Because I really enjoyed your AP English class and learned so much from your writing feedback, I am writing to ask if you would be willing to write a letter of recommendation for me.\n\nI have attached my student resume and brag sheet for your reference. Please let me know if you need any additional details!",
+                signoff: "Best regards,\nMaya Lin\n12th Grade Student"
+            },
+            job: {
+                recipient: "boss",
+                subject: "Application: Part-Time Team Member - Alex Vance",
+                greeting: "Dear Hiring Manager,",
+                body: "I am writing to express my strong interest in the part-time Front Desk position at the Community Recreation Center.\n\nAs a high school junior with a 3.8 GPA and strong leadership skills gained through Student Council, I am eager to contribute to your front desk team. I am available weekday afternoons after 3:30 PM and full days on weekends.\n\nAttached is my resume for your review. Thank you for your time and consideration.",
+                signoff: "Sincerely,\nAlex Vance\nLincoln High School Student"
+            },
+            college: {
+                recipient: "college",
+                subject: "Inquiry regarding Campus Visit & Engineering Tour - Sam Rivera",
+                greeting: "Dear Admissions Team,",
+                body: "My name is Sam Rivera, a high school senior interested in applying to your Mechanical Engineering program for Fall 2027.\n\nI am planning a visit to campus next month and was wondering if guided tours of the Robotics and Engineering labs are currently available for prospective applicants.\n\nThank you for your assistance!",
+                signoff: "Warm regards,\nSam Rivera\nHigh School Senior"
+            }
+        };
+
+        function loadScenario(key) {
+            if (key === 'custom') {
+                document.getElementById('input-subject').value = '';
+                document.getElementById('input-greeting').value = '';
+                document.getElementById('input-body').value = '';
+                document.getElementById('input-signoff').value = '';
+                return;
+            }
+            const s = sampleScenarios[key];
+            document.getElementById('input-recipient').value = s.recipient;
+            document.getElementById('input-subject').value = s.subject;
+            document.getElementById('input-greeting').value = s.greeting;
+            document.getElementById('input-body').value = s.body;
+            document.getElementById('input-signoff').value = s.signoff;
+        }
+
+        // Email Draft Analysis Engine
+        function analyzeEmail() {
+            const subject = document.getElementById('input-subject').value.trim();
+            const greeting = document.getElementById('input-greeting').value.trim();
+            const body = document.getElementById('input-body').value.trim();
+            const signoff = document.getElementById('input-signoff').value.trim();
+            const recipient = document.getElementById('input-recipient').value;
+
+            if (!subject || !body) {
+                alert("Please enter at least a Subject line and Email Body before analyzing.");
+                return;
+            }
+
+            let score = 100;
+            const checklist = [];
+            const suggestions = [];
+
+            // Subject analysis
+            if (subject.length < 5) {
+                score -= 20;
+                checklist.push({ ok: false, text: "Subject line is too short or vague." });
+                suggestions.push("Expand subject line to include specific context (e.g., class name, period, or topic).");
+            } else if (subject.toUpperCase() === subject) {
+                score -= 15;
+                checklist.push({ ok: false, text: "Subject line is in ALL-CAPS (may sound aggressive)." });
+                suggestions.push("Use standard sentence or title capitalization for your subject line.");
+            } else {
+                checklist.push({ ok: true, text: "Subject line is clear and descriptive." });
+            }
+
+            // Greeting analysis
+            if (!greeting) {
+                score -= 15;
+                checklist.push({ ok: false, text: "Missing salutation/greeting." });
+                suggestions.push("Add a polite salutation (e.g., 'Dear Mr. Smith,' or 'Hello Ms. Gomez,').");
+            } else {
+                checklist.push({ ok: true, text: "Includes a proper greeting." });
+            }
+
+            // Class Period / Identification Check for Teachers
+            const hasPeriodOrGrade = /(period|grade|class|p\.\d|\d(st|nd|rd|th)\s+period)/i.test(body + " " + subject + " " + signoff);
+            if (recipient === 'teacher' && !hasPeriodOrGrade) {
+                score -= 10;
+                checklist.push({ ok: false, text: "Missing class period / course reference." });
+                suggestions.push("Teachers teach over 100 students daily. Always specify your class period (e.g., 'Period 3') in your email.");
+            } else if (recipient === 'teacher') {
+                checklist.push({ ok: true, text: "Includes class period / course reference." });
+            }
+
+            // Body Length analysis
+            const words = body.split(/\s+/).length;
+            if (words < 15) {
+                score -= 15;
+                checklist.push({ ok: false, text: "Email body seems overly abrupt or sparse." });
+                suggestions.push("Provide a bit more context so your teacher or counselor understands your request.");
+            } else if (words > 250) {
+                score -= 10;
+                checklist.push({ ok: false, text: "Email body is quite long (>250 words)." });
+                suggestions.push("Keep high school emails concise. Teachers and counselors appreciate direct, quick messages.");
+            } else {
+                checklist.push({ ok: true, text: "Email word count is concise and well-paced." });
+            }
+
+            // Call to Action Check
+            const hasQuestionOrDeadline = /[?]|by\s+(Monday|Tuesday|Wednesday|Thursday|Friday|today|tomorrow|\d+)/i.test(body);
+            if (!hasQuestionOrDeadline) {
+                score -= 10;
+                checklist.push({ ok: false, text: "Lacks explicit call to action or question." });
+                suggestions.push("End with a specific question or meeting request (e.g., 'May I stop by after class tomorrow?').");
+            } else {
+                checklist.push({ ok: true, text: "Contains a clear question or next step." });
+            }
+
+            // Sign-off Check
+            if (!signoff) {
+                score -= 10;
+                checklist.push({ ok: false, text: "Missing student sign-off." });
+                suggestions.push("Include a courteous closing like 'Thank you,' or 'Best regards,' with your full name.");
+            } else {
+                checklist.push({ ok: true, text: "Includes a courteous closing sign-off." });
+            }
+
+            // Display Results
+            document.getElementById('analysis-placeholder').classList.add('hidden');
+            document.getElementById('analysis-results').classList.remove('hidden');
+
+            document.getElementById('score-grade').innerText = `${score} / 100`;
+
+            const badge = document.getElementById('score-badge');
+            if (score >= 85) {
+                badge.className = "px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800";
+                badge.innerText = "Strong & Professional";
+            } else if (score >= 65) {
+                badge.className = "px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800";
+                badge.innerText = "Good - Minor Polish Needed";
+            } else {
+                badge.className = "px-3 py-1 rounded-full text-xs font-bold bg-red-100 text-red-800";
+                badge.innerText = "Needs Improvement";
+            }
+
+            // Checklist render
+            document.getElementById('checklist-items').innerHTML = checklist.map(item => `
+                <li class="flex items-center gap-2">
+                    <span>${item.ok ? '✅' : '❌'}</span>
+                    <span class="${item.ok ? 'text-slate-700' : 'text-red-700 font-medium'}">${item.text}</span>
+                </li>
+            `).join('');
+
+            // Suggestions render
+            if (suggestions.length === 0) {
+                document.getElementById('suggestions-list').innerHTML = `<li>Great job! Your draft hits all major student email best practices.</li>`;
+            } else {
+                document.getElementById('suggestions-list').innerHTML = suggestions.map(s => `<li>${s}</li>`).join('');
+            }
+        }
+
+        // Quiz State
+        let quizScore = 0;
+        const answeredQ = {};
+
+        function answerQuiz(qNum, isCorrect, btnElement) {
+            if (answeredQ[qNum]) return;
+            answeredQ[qNum] = true;
+
+            const parent = btnElement.parentElement;
+            const buttons = parent.querySelectorAll('button');
+
+            buttons.forEach(b => b.disabled = true);
+
+            if (isCorrect) {
+                btnElement.classList.add('bg-emerald-100', 'border-emerald-500', 'text-emerald-900', 'font-semibold');
+                quizScore += 1;
+            } else {
+                btnElement.classList.add('bg-red-100', 'border-red-500', 'text-red-900');
+            }
+
+            document.getElementById('quiz-score-badge').innerText = `Score: ${quizScore} / 3`;
+        }
+
+        // Initialize Tone tab
+        showTone('formal');
+    </script>
+</body>
+</html>
